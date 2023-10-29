@@ -14,8 +14,9 @@ public class SimpleSampleCharacterControl : MonoBehaviour
         /// </summary>
         Direct
     }
+    private int count;
 
-    [SerializeField] private float m_moveSpeed = 2;
+    [SerializeField] public float m_moveSpeed = 2;
     [SerializeField] private float m_turnSpeed = 200;
     [SerializeField] private float m_jumpForce = 4;
 
@@ -42,6 +43,11 @@ public class SimpleSampleCharacterControl : MonoBehaviour
     private bool m_isGrounded;
 
     private List<Collider> m_collisions = new List<Collider>();
+
+    void Start()
+    {
+        count = 0;
+    }
 
     private void Awake()
     {
@@ -217,5 +223,10 @@ public class SimpleSampleCharacterControl : MonoBehaviour
         {
             m_animator.SetTrigger("Jump");
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
     }
 }

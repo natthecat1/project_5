@@ -15,6 +15,7 @@ public class DialogueManager : MonoBehaviour
     public Text npcName;
     public Text npcDialogueBox;
     public Text playerResponse;
+    public float Damage;
 
     // Start is called before the first frame update
     void Start()
@@ -67,6 +68,7 @@ public class DialogueManager : MonoBehaviour
                 playerResponse.text = npc.playerDialogue[1];
                 if(Input.GetKeyDown(KeyCode.Return)) {
                     npcDialogueBox.text = npc.dialogue[2];
+                    //gameObject.GetComponent<health>().TakeDamage(Damage);
                 }
             }
             else if (curResponseTracker > 2 && npc.playerDialogue.Length >= 2)
